@@ -3,8 +3,7 @@
 # A Garry's mod docker server startup and configuratin script 
 #
 # Prerequisites:
- # -Docker installed and running
- # -Garry's mod docker image pulled "bareq/steamcmd:gmod"
+# -Docker installed and running
 
 
 
