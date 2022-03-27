@@ -145,6 +145,7 @@ function start_menu() {
         "Update")
             
             echo "Starting the update service..."
+            update_image
 	    # call update function
             ;;
         "Change settings")
