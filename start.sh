@@ -47,8 +47,8 @@ function update_conf() {
 
 
 function server_start(){
-    LUNCH_PARAM="/home/steam/SteamCMD/gmod/srcds_run -console +hostname "$SNAME" +sv_password "$SPASS" +rcon_password "$RPASS"  +maxplayers "$SPLAYERCOUNT" +gamemode "$SMODE" +map "$SMAP" -tickrate "$STICK" +sv_lan "$LAN" +sv_setsteamaccount "$STOKEN" +host_workshop_collection "$WSHOP""
-    (sudo docker run -it --rm -p $SPORT:27005 --memory="$SRAM"m --memory-swap="$SRAM"m -v $(pwd)/"server data"/cfg:/home/steam/SteamCMD/gmod/garrysmod/cfg -v $(pwd)/"server data"/addons:/home/steam/SteamCMD/gmod/garrysmod/addons -v $(pwd)/"server data"/data:/home/steam/SteamCMD/gmod/garrysmod/data --name gmod_server bareq/steamcmd:gmod su -c "$LUNCH_PARAM" steam) 2>&1 | tee -a ./"server data"/runtime.log
+    LUNCH_PARAM="/home/steam/SteamCMD/gmod/srcds_run -port "$SPORT" -console +hostname "$SNAME" +sv_password "$SPASS" +rcon_password "$RPASS"  +maxplayers "$SPLAYERCOUNT" +gamemode "$SMODE" +map "$SMAP" -tickrate "$STICK" +sv_lan "$LAN" +sv_setsteamaccount "$STOKEN" +host_workshop_collection "$WSHOP""
+    (sudo docker run -it --rm --net=host --memory="$SRAM"m --memory-swap="$SRAM"m -v $(pwd)/"server data"/cfg:/home/steam/SteamCMD/gmod/garrysmod/cfg -v $(pwd)/"server data"/addons:/home/steam/SteamCMD/gmod/garrysmod/addons -v $(pwd)/"server data"/data:/home/steam/SteamCMD/gmod/garrysmod/data --name gmod_server bareq/steamcmd:gmod su -c "$LUNCH_PARAM" steam) 2>&1 | tee -a ./"server data"/runtime.log
 }
 # The first time start up setup
 function new_setup() {
