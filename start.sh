@@ -124,7 +124,7 @@ function new_setup() {
 
 
 function update_image(){
-    echo: "Starting update process.."
+    echo "Starting update process.."
     sudo docker pull bareq/steamcmd:gmod
 }
 
